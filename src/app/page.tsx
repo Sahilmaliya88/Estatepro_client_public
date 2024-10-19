@@ -3,15 +3,12 @@ import Typing from "@/components/Typing";
 import { serverlink } from "@/lib/serverlink";
 import { userStore } from "@/lib/Store";
 import axios from "axios";
-import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useTransition } from "react";
 import Header, { varient } from './../components/Header/Header';
 
 export default function Home({}) {
-  const {user,addUser} = userStore()
-  function changeUsername(){
-    addUser("sahil")
-  }
+  const {addUser} = userStore()
+  const [isPending,startVerifing] = useTransition()
   const verifyUser = async():Promise<void>=>{
     try{
       const response = await axios.get(`${serverlink}/auth/verify`,{withCredentials:true})
@@ -20,15 +17,15 @@ export default function Home({}) {
       }
     }catch(err){
       console.log(err)
-    }
-      
+    }  
   }
   useEffect(()=>{
-    verifyUser()
+      startVerifing(verifyUser)
   },[])
   return (
     <div className="">
-        <Header varient={varient.light}></Header>
+        <Header varient={varient.light} ispending={isPending}></Header>
+      { isPending &&  <h1>pending...</h1>}
     </div>
   );
 }

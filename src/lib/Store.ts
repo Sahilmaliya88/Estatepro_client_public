@@ -1,11 +1,12 @@
 import {create} from 'zustand'
+import { user_type } from './types'
 interface state{
-    user:any
+    user:user_type | null
 }
 interface actions{
-    addUser:(user:any)=>void
+    addUser:(user:user_type | null)=>void
 }
 export const userStore = create<state & actions>((set)=>({
     user:null,
-    addUser:(user:any)=>set((state)=>({user:user}))
+    addUser:(user:user_type | null)=>set((state)=>({user:user}))
 }))
