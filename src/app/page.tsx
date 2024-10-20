@@ -1,10 +1,13 @@
 "use client"
-import Typing from "@/components/Typing";
 import { serverlink } from "@/lib/serverlink";
 import { userStore } from "@/lib/Store";
 import axios from "axios";
 import { useEffect, useTransition } from "react";
 import Header, { varient } from './../components/Header/Header';
+import Hero from "@/components/Hero/Hero";
+import Trustedby from "@/components/Hero/Trustedby";
+import Popular from "@/components/Hero/Popular";
+import Separator from "@/components/Separator";
 
 export default function Home({}) {
   const {addUser} = userStore()
@@ -24,8 +27,13 @@ export default function Home({}) {
   },[])
   return (
     <div className="">
-        <Header varient={varient.light} ispending={isPending}></Header>
-      { isPending &&  <h1>pending...</h1>}
+      <div className="hero">
+         <Header varient={varient.dark} ispending={isPending}></Header>
+         <Hero></Hero>
+      </div>
+      <Trustedby></Trustedby>
+      <Separator></Separator>
+      <Popular></Popular>
     </div>
   );
 }

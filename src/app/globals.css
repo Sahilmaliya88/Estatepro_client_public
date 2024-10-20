@@ -6,17 +6,19 @@
   --primary-color:#F15A29;
   --secondary-color-1:#E6440F;
   --secondary-color-2:#FEF4F1;
-  
+  --black-color:#070707;
+  --extrabold:700;
+  --semibold:600;
 }
 *{
   box-sizing: border-box;
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
   max-width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 body{
-  padding: 5px;
   margin: 0;
 }
 /* From Uiverse.io by juan-sued */ 
@@ -255,4 +257,72 @@ body{
 }
 .hammenu>span:nth-of-type(3){
   top: 75%;
+}
+
+.padding-d{
+  @apply px-[50px] max-md:px-2
+}
+.hero{
+  @apply bg-[var(--black-color)] px-[50px] max-md:px-2 pb-[50px] max-md:pb-2
+}
+.hero-main{
+  @apply text-white py-2 px-3 w-full 
+}
+
+.heromaintext{
+  @apply text-[80px] max-md:text-[50px] max-md:leading-[80px] font-[700] capitalize mt-[50px]
+}
+.heromaintext span{
+  @apply text-[var(--primary-color)]
+}
+.heropara{
+  word-spacing: 5px;
+  @apply text-[20px] font-[400] capitalize max-xl:w-full w-[70%]  text-wrap
+}
+.hero-gt{
+  @apply px-[24px] overflow-hidden py-[20px] mt-[20px] text-white rounded-[12px]  bg-[var(--primary-color)]
+}
+
+#suffix{
+  @apply text-[var(--primary-color)]
+}
+
+.counter{
+  @apply text-[28px] font-[var(--semibold)]
+}
+.herostatics{
+  @apply flex gap-[50px] mt-[30px] flex-wrap
+}
+.heroimg{
+  @apply  h-[500px] rounded-[10px] max-md:h-[250px] w-full
+}
+.searchip{
+  @apply flex absolute max-md:translate-x-0 max-lg:left-[50%] max-lg:translate-x-[-50%] max-md:mt-3 max-md:static max-md:w-full max-md:h-[40px] max-md:py-1 bottom-[15px] left-8  gap-2 bg-white w-[600px] py-[10px] h-[70px] items-center px-2 rounded-[10px]
+}
+.loc-icon{
+  @apply text-[var(--primary-color)] text-[50px] max-md:text-[30px]
+}
+.searchip > .ip {
+   all: unset;
+   @apply outline-none max-md:placeholder:text-[16px] text-black text-[20px] w-full border-none focus:outline-none placeholder:text-[20px] placeholder:font-[400]
+}
+.trustedimgs{
+  @apply w-[138px] h-[40px] object-contain grayscale max-lg:w-[100px]
+}
+.popularhead{
+  @apply font-[var(--extrabold)] text-[60px] max-md:text-[25px]
+}
+.separator{
+  @apply w-full h-[1px] bg-[var(--black-color)] my-3 opacity-[40%]
+}
+#rightarrow{
+  animation: side 2s ease-in  infinite;
+}
+@keyframes side{
+  0%,100%{
+    transform: translateX(0px);
+  }
+  50%{
+    transform: translateX(10px);
+  }
 }

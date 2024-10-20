@@ -134,14 +134,14 @@ const Header: NextPage<Props> = (Props) => {
         )
     }
    
-    <button id='hamb' className='hidden fix right-10 z-50 max-md:flex'>
+    <button id='hamb' className='hidden fix right-[20px] px-2 z-50 max-md:flex'>
             <div className={`hammenu`}>
-                <span id='hm1' className={`${Props.varient === varient.dark ? "bg-white":"bg-black"}`} ref={hm1}></span>
+                <span id='hm1' className={` ${Props.varient === varient.dark ? "bg-white":"bg-black"}`} ref={hm1}></span>
                 <span id='hm2' className={`${Props.varient === varient.dark ? "bg-white":"bg-black"}`}  ref={hm2}></span>
                 <span id='hm3' className={`${Props.varient === varient.dark ? "bg-white":"bg-black"}`}  ref={hm3}></span>
             </div>
     </button>
-    <nav id='resnav' className='hidden gap-2 max-md:flex min-h-[80vh]  w-full p-2 shadow-sm flex-col top-0 bg-white z-40 fixed right-[-200%]'>
+    <nav id='resnav' className={`hidden gap-2 ${Props.varient === varient.dark ? "bg-black":"bg-white"} max-md:flex h-screen  w-full p-2 shadow-sm flex-col top-0  z-40 fixed right-[-200%]`}>
      { user && <div className='flex gap-2 items-center'>
             <img src={user.photo || "https://res.cloudinary.com/dh0ekblp9/image/upload/v1729276941/coverphotos/cffbgx965dr4mbtuigdz.png"} className='w-[80px] h-[80px]'></img>
             <div className=''>
