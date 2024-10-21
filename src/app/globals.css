@@ -326,3 +326,14 @@ body{
     transform: translateX(10px);
   }
 }
+.propcard{
+  @apply w-[580px] max-md:mt-[10px] min-h-[600px] max-xl:w-[400px] max-xl:min-h-[450px] max-md:min-h-[400px] rounded-[10px] bg-white max-md:w-full px-2
+}
+.propimage{
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  @apply w-full h-[430px] max-xl:h-[280px]  max-md:h-[250px] object-contain
+}
+.pcamenities{
+  @apply bg-[#F3F3F3] p-1 flex gap-1 items-center text-[20px] max-md:w-[100px] max-md:text-[18px] w-[180px] py-[10px] justify-center font-[var(--semibold)]
+}

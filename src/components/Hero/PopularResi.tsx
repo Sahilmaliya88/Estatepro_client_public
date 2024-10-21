@@ -2,6 +2,7 @@ import { serverlink } from '@/lib/serverlink'
 import axios from 'axios'
 import { NextPage } from 'next'
 import {Property} from '../../lib/types'
+import PropertyCard from '../PropertyCard'
 interface Props {}
 async function getResidency(){
     try {
@@ -17,11 +18,11 @@ async function getResidency(){
 }
 const PopularResi: NextPage<Props> = async({}) => {
     const residencies:Property[] = await getResidency()
-  return <div>
+  return <div className='min-h-[1000px]'>
     {
-        residencies?.length >0 ? (<div>
+        residencies?.length >0 ? (<div className="flex justify-around max-md:justify-center flex-wrap h-full gap-[10px] ">
             {
-                residencies.map((ele)=><h1 key={ele.id}>{ele.title}</h1>)
+                residencies.map((ele,index)=><PropertyCard property={ele} index={index} key={ele.id}></PropertyCard>)
             }
         </div>):(<h1>wait for add</h1>)
     }
